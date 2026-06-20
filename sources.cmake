@@ -1,2 +1,2 @@
-# Stub source list for src/uniter.
-set(UNITER_SOURCES)
+# Stub source list for src/app.
+set(UNITER_APP_SOURCES)

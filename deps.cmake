@@ -1,1 +1,1 @@
-# Stub dependencies for src/uniter.
+# Stub dependencies for src/app.

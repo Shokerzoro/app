@@ -1,3 +1,3 @@
-# uniter
+# app
 
-Main Uniter client executable area.
+Main Uniter client executable/orchestration area.
