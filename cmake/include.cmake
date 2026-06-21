@@ -1,0 +1,3 @@
+set(APP_INCLUDE
+    "${CMAKE_CURRENT_LIST_DIR}/.."
+)
