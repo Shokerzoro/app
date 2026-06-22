@@ -1,8 +1,16 @@
+get_filename_component(APP_ROOT "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)
+
 file(GLOB_RECURSE APP_SOURCES CONFIGURE_DEPENDS
-    "${CMAKE_CURRENT_LIST_DIR}/../*.cpp"
-    "${CMAKE_CURRENT_LIST_DIR}/../*.h"
-    "${CMAKE_CURRENT_LIST_DIR}/../*.hpp"
+    "${APP_ROOT}/*.cpp"
+    "${APP_ROOT}/*.h"
+    "${APP_ROOT}/*.hpp"
+)
+
+file(GLOB_RECURSE APP_COMPILE_SOURCES CONFIGURE_DEPENDS
+    "${APP_ROOT}/*.cpp"
 )
 
 list(FILTER APP_SOURCES EXCLUDE REGEX ".*/tests/.*")
 list(FILTER APP_SOURCES EXCLUDE REGEX ".*/cmake/.*")
+list(FILTER APP_COMPILE_SOURCES EXCLUDE REGEX ".*/tests/.*")
+list(FILTER APP_COMPILE_SOURCES EXCLUDE REGEX ".*/cmake/.*")
