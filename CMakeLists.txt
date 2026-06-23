@@ -34,7 +34,9 @@ target_link_libraries(app
         messaging
         network
         contract
+        contract_verbose_include
         xmlcontract
+        xmlcontract_verbose_include
 )
 
 # DevKit Usage
