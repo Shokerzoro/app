@@ -25,16 +25,16 @@ target_include_directories(app
 # Linkage
 target_link_libraries(app
     ${APP_TARGET_SCOPE}
-        clientcommon
-        ui
+        syspilot
+        frontshell
         blogic
         data
         database
         control
-        messaging
-        network
-        contract
-        xmlcontract
+        serverbrige
+        netcore
+        sharedmodel
+        xmlschema
 )
 
 # DevKit Usage
