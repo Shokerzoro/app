@@ -31,7 +31,7 @@ target_link_libraries(app
         syspilot
         frontshell
         blogic
-        data
+        datacore
         database
         control
         serverbrige
