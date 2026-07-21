@@ -1,5 +1,5 @@
 # Versioning
-project(app VERSION 0.0.1 LANGUAGES CXX)
+project(app VERSION 0.1.0 LANGUAGES CXX)
 
 # Sources
 include(cmake/sources.cmake)
@@ -30,14 +30,13 @@ target_link_libraries(app
     ${APP_TARGET_SCOPE}
         syspilot
         frontshell
-        blogic
         datacore
-        database
         control
-        serverbrige
+        netbridge
+        filetransfer
         netcore
+        settings
         sharedmodel
-        xmlschema
 )
 
 # DevKit Usage
