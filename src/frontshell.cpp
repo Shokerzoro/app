@@ -28,6 +28,8 @@ void connectFrontshell(control::Updater& updater, QApplication& application)
                      &uiController, [&uiController](control::NetState state) {
         uiController.onNetstateChanged(state == control::NetState::ONLINE);
     });
+    QObject::connect(&appManager, &control::AppManager::signalReadyWork,
+                     &uiController, &frontshell::UIController::onReadyWork);
     QObject::connect(&uiController, &frontshell::UIController::logoutRequested,
                      &appManager, &control::AppManager::onLogout);
     QObject::connect(&uiController, &frontshell::UIController::shutdownRequested,
