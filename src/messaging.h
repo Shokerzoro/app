@@ -1,0 +1,8 @@
+//
+// Created by zver on 21.07.2026.
+//
+
+#ifndef UNITER_CLIENT_MESSAGING_H
+#define UNITER_CLIENT_MESSAGING_H
+
+#endif //UNITER_CLIENT_MESSAGING_H
