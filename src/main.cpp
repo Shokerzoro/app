@@ -35,6 +35,7 @@ using ElevatorOptions = syspilot::CLIOptions<
 
 void launchCrashRestart()
 {
+    auto& logger = syspilot::Logger::instance();
     ElevatorOptions options;
     options.set_command(syspilot::ElevatorCommands::restartapp);
     options.set_argument(
@@ -43,9 +44,11 @@ void launchCrashRestart()
 
     auto elevator = std::make_unique<syspilot::ChildProcess>(syspilot::BinType::Elevator);
     if (!(*elevator << options)) {
+        logger.full_log("launchCrashRestart(): unable to configure elevator process");
         return;
     }
     if (!elevator->run() || !elevator->wait_started()) {
+        logger.full_log("launchCrashRestart(): unable to start elevator process");
         return;
     }
     elevator.release();
@@ -74,6 +77,10 @@ int main(int argc, char* argv[])
 
         const bool local = options.has_flag(syspilot::UniterFlags::local);
         const bool updated = options.has_flag(syspilot::UniterFlags::updated);
+        logger.full_log(
+            "main(): application initialized, mode="
+            + std::string(local ? "local" : "remote")
+            + ", updated=" + std::string(updated ? "true" : "false"));
         control::Updater updater;
         frontshell::MainWidget mainWidget;
 
