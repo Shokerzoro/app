@@ -47,6 +47,10 @@ void connectManagers(control::AppManager& appManager, control::Updater& updater)
                      &appManager, &control::AppManager::onFullSyncApplied);
     QObject::connect(&appManager, &control::AppManager::signalStartUpdating,
                      &updater, &control::Updater::onStartUpdating);
+    QObject::connect(&updater, &control::Updater::signalUpdateReady,
+                     &appManager, &control::AppManager::onUpdateReady);
+    QObject::connect(&appManager, &control::AppManager::signalForcedUpdate,
+                     &updater, &control::Updater::onUpdateApproved);
 }
 
 } // namespace
@@ -80,6 +84,8 @@ void connectControl(netcore::PublicConnector& publicConnector,
                      &appManager, &control::AppManager::onKafkaConnected);
     QObject::connect(&kafkaConnector, &netcore::KafkaConnector::signalKafkaOffsetReady,
                      &appManager, &control::AppManager::onKafkaOffsetReady);
+    QObject::connect(&kafkaConnector, &netcore::KafkaConnector::signalUpdateNeeded,
+                     &appManager, &control::AppManager::onUpdateNeeded);
 
     connectManagers(appManager, updater);
 }
