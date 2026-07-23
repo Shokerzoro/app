@@ -1,5 +1,5 @@
 # Versioning
-project(app VERSION 0.2.0 LANGUAGES CXX)
+project(app VERSION 0.2.1 LANGUAGES CXX)
 
 # Sources
 include(cmake/sources.cmake)
